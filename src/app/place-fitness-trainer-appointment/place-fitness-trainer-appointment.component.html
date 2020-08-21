@@ -1,0 +1,298 @@
+<div class="container p-5">
+    <div class="col-9">
+      <h3>Place Appointment</h3>
+      <form [formGroup]="fitnessForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>First Name</label>
+          <input
+            type="text"
+            formControlName="firstname"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
+            appAutofocus
+            [(ngModel)] = "fitness.firstname"
+          />
+          <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+            <div *ngIf="f.firstname.errors.required">
+              First Name is required
+            </div>
+            <div *ngIf="f.firstname.errors.pattern">
+              First Name must not contain any numbers
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input
+            type="text"
+            formControlName="lastname"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"
+            [(ngModel)] = "fitness.lastname"
+          />
+          <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+            <div *ngIf="f.lastname.errors.required">
+              Last Name is required
+            </div>
+            <div *ngIf="f.lastname.errors.pattern">
+              Last Name must not contain any numbers
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Age</label>
+          <input
+            type="number"
+            formControlName="age"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.age.errors }"
+            [(ngModel)] = "fitness.age"
+          />
+          <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+            <div *ngIf="f.age.errors.required">Age is required</div>
+  
+            <div *ngIf="f.age.errors.age">
+              <sup>*</sup>Age should be between 18 and 60 years
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone number</label>
+          <input
+            type="text"
+            formControlName="phonenumber"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }"
+            [(ngModel)] = "fitness.phonenumber"
+          />
+          <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
+            <div *ngIf="f.phonenumber.errors.required">Phone number is required</div>
+            <div *ngIf="f.phonenumber.errors.pattern">Phone number must contain only numbers</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            [(ngModel)] = "fitness.email"
+          />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.pattern">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="trainerpreference">Trainer preference:</label>
+          <div>
+            <input
+              id="male"
+              type="radio"
+              value="male"
+              name="trainerpreference"
+              formControlName="trainerpreference"
+              [ngClass]="{ 'is-invalid': submitted && f.trainerpreference.errors }"
+              [(ngModel)] = "fitness.trainerpreference"
+            />
+            <label for="male" class="pl-1">Male</label>
+          </div>
+  
+          <div>
+            <input
+              id="female"
+              type="radio"
+              value="female"
+              name="trainerpreference"
+              formControlName="trainerpreference"
+              [ngClass]="{ 'is-invalid': submitted && f.trainerpreference.errors }"
+              [(ngModel)] = "fitness.trainerpreference"
+            />
+            <label for="female" class="pl-1">Female</label>
+          </div>
+          <div>
+            <input
+              id="nopreference"
+              type="radio"
+              value="nopreference"
+              name="trainerpreference"
+              formControlName="trainerpreference"
+              [ngClass]="{ 'is-invalid': submitted && f.trainerpreference.errors }"
+              [(ngModel)] = "fitness.trainerpreference"
+            />
+            <label for="nopreference" class="pl-1">No preference</label>
+          </div>
+  
+          <div *ngIf="submitted && f.trainerpreference.errors" class="invalid-feedback">
+            <div *ngIf="f.trainerpreference.errors.required">
+              Trainer preference is required.
+            </div>
+          </div>
+        </div>
+        
+        <fieldset class="bg-light p-3 border mb-4">
+          <div class="form-group">
+            <label>Street address</label>
+            <input
+              type="text"
+              formControlName="streetaddress"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.streetaddress.errors }"
+              [(ngModel)] = "fitness.streetaddress"
+            />
+            <div *ngIf="submitted && f.streetaddress.errors" class="invalid-feedback">
+              <div *ngIf="f.streetaddress.errors.required">
+                Street address is required
+              </div>         
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>City</label>
+            <input
+              type="text"
+              formControlName="city"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
+              [(ngModel)] = "fitness.city"
+              
+            />
+            <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+              <div *ngIf="f.city.errors.required">
+                City is required
+              </div>         
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>State</label>
+            <input
+              type="text"
+              formControlName="state"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.state.errors }"
+              [(ngModel)] = "fitness.state"
+            />
+            <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+              <div *ngIf="f.state.errors.required">
+                State is required
+              </div>         
+            </div>
+          </div>
+
+        <div class="form-group">
+          <label>Country</label>
+          <input
+            type="text"
+            formControlName="country"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.country.errors }"
+            [(ngModel)] = "fitness.country"
+          />
+          <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+            <div *ngIf="f.country.errors.required">
+              Country is required
+            </div>         
+          </div>
+        </div>
+
+
+      <div class="form-group">
+        <label>Pincode</label>
+        <input
+          type="text"
+          formControlName="pincode"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }"
+          [(ngModel)] = "fitness.pincode"
+        />
+        <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback">
+          <div *ngIf="f.pincode.errors.required">
+            Pincode is required
+          </div>
+          <div *ngIf="f.pincode.errors.minlength || f.pincode.errors.maxlength ">
+            Pincode must have 6 digits
+          </div>    
+          <div *ngIf="f.pincode.errors.pattern">Pincode must contain only numbers</div>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="form-group">
+      <label for="physiotherapist">Physiotherapist:</label>
+      <div>
+        <input
+          id="yes"
+          type="radio"
+          value="yes"
+          name="physiotherapist"
+          formControlName="physiotherapist"
+          [ngClass]="{ 'is-invalid': submitted && f.physiotherapist.errors }"
+          [(ngModel)] = "fitness.physiotherapist"
+        />
+        <label for="yes" class="pl-1">Yes</label>
+      </div>
+      <div>
+        <input
+          id="no"
+          type="radio"
+          value="no"
+          name="physiotherapist"
+          formControlName="physiotherapist"
+          [ngClass]="{ 'is-invalid': submitted && f.physiotherapist.errors }"
+          [(ngModel)] = "fitness.physiotherapist"
+        />
+        <label for="no" class="pl-1">No</label>
+      </div>
+    </div>
+
+    <select class="custom-select"  formControlName="packages" type = "text">
+      <option value = "1000" [selected] = "true">1K/month</option>
+      <option value = "2000" >2K/month</option>
+      <option value = "3000">3K/month</option>
+
+    </select>
+    
+      <div class="form-group">
+        <label>Inr</label>
+        <input
+          type="number"
+          formControlName="inr"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.inr.errors }"
+
+        />
+        <div *ngIf="submitted && f.inr.errors" class="invalid-feedback">
+          <div *ngIf="f.inr.errors.required">
+            INR is required
+          </div>         
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Paisa</label>
+        <input
+          type="number"
+          formControlName="paisa"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.paisa.errors }"
+         
+        />
+        <div *ngIf="submitted && f.paisa.errors" class="invalid-feedback">
+          <div *ngIf="f.paisa.errors.required">
+            Paisa is required
+          </div>         
+        </div>
+      </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

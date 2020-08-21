@@ -1,0 +1,70 @@
+<!-- Upper Navbar -->
+<nav class="navbar bg-dark">
+  <!-- logo -->
+  <div class="navbar-brand">
+    <a class="navbar-item p-5">
+      <img src="assets/img/fit1.png" width="50px" height="50px" />
+    </a>
+    <a routerLink="/" style=" text-align:center;"> Fitness Tracker </a>
+  </div>
+</nav>
+
+<!-- Lower Navbar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <ul class="navbar-nav pl-5">
+    <li><a class="nav-link pr-5 pl-5" routerLink="/landing-page"> Home</a></li>
+    <li>
+      <a
+        class="nav-link pr-5 pl-5"
+        routerLink="/place-fitness-trainer-appointment"
+        >Place Appointment</a
+      >
+    </li>
+    <li>
+      <a class="nav-link pr-5 pl-5" routerLink="/view-appointment">
+        View Appointment</a
+      >
+    </li>
+    <li>
+      <a class="nav-link pr-5 pl-5" routerLink="/contact-us"> Contact Us</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Sidebar -->
+<div class="row">
+  <div class="col-3 bg-light">
+    <div class="bg-light border-left text-center">
+      <div class="list-group list-group-flush">
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-light"
+          routerLink="/landing-page"
+          >Home</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-light"
+          routerLink="/place-fitness-trainer-appointment"
+          >Place Appointment</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-light"
+          routerLink="/view-appointment"
+          >View Appointment</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action bg-light"
+          routerLink="/contact-us"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <!-- Components -->
+    <router-outlet></router-outlet>
+  </div>
+</div>
